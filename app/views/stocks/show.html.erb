@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @stock.fabric_id %>
+</p>
+
+<p>
+  <strong>Fabric meter count:</strong>
+  <%= @stock.fabric_meter_count %>
+</p>
+
+<p>
+  <strong>Religion:</strong>
+  <%= @stock.religion %>
+</p>
+
+<p>
+  <strong>Shipping date:</strong>
+  <%= @stock.shipping_date %>
+</p>
+
+<p>
+  <strong>Fabric price:</strong>
+  <%= @stock.fabric_price %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

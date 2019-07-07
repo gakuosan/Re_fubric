@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fabric_color: MyString
+  fabric_weight: 1
+  fabric_yarn_count: 1
+  fabric_knitting_way: MyString
+  fabric_price: 1
+  fabric_composition: 1
+  fabric_id: 1
+  fabric_count: 1
+
+two:
+  fabric_color: MyString
+  fabric_weight: 1
+  fabric_yarn_count: 1
+  fabric_knitting_way: MyString
+  fabric_price: 1
+  fabric_composition: 1
+  fabric_id: 1
+  fabric_count: 1

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fabric_id: 1
+  fabric_meter_count: 1
+  religion: MyText
+  shipping_date: 1
+  fabric_price: 1
+
+two:
+  fabric_id: 1
+  fabric_meter_count: 1
+  religion: MyText
+  shipping_date: 1
+  fabric_price: 1

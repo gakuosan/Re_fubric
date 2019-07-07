@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fabric color:</strong>
+  <%= @fabric.fabric_color %>
+</p>
+
+<p>
+  <strong>Fabric weight:</strong>
+  <%= @fabric.fabric_weight %>
+</p>
+
+<p>
+  <strong>Fabric yarn count:</strong>
+  <%= @fabric.fabric_yarn_count %>
+</p>
+
+<p>
+  <strong>Fabric knitting way:</strong>
+  <%= @fabric.fabric_knitting_way %>
+</p>
+
+<p>
+  <strong>Fabric price:</strong>
+  <%= @fabric.fabric_price %>
+</p>
+
+<p>
+  <strong>Fabric composition:</strong>
+  <%= @fabric.fabric_composition %>
+</p>
+
+<p>
+  <strong>Fabric:</strong>
+  <%= @fabric.fabric_id %>
+</p>
+
+<p>
+  <strong>Fabric count:</strong>
+  <%= @fabric.fabric_count %>
+</p>
+
+<%= link_to 'Edit', edit_fabric_path(@fabric) %> |
+<%= link_to 'Back', fabrics_path %>
