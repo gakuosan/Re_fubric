@@ -10,6 +10,7 @@ class SellersController < ApplicationController
   # GET /sellers/1
   # GET /sellers/1.json
   def show
+    @seller = Seller.find(params[:id])
   end
 
   # GET /sellers/new

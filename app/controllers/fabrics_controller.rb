@@ -10,6 +10,7 @@ class FabricsController < ApplicationController
   # GET /fabrics/1
   # GET /fabrics/1.json
   def show
+      @fabric = Fabric.find(params[:id])
   end
 
   # GET /fabrics/new

@@ -10,9 +10,9 @@ class BuyersController < ApplicationController
   # GET /buyers/1
   # GET /buyers/1.json
   def show
+    @buyer = Buyer.find(params[:id])
   end
 
-  # GET /buyers/new
   def new
     @buyer = Buyer.new
   end
