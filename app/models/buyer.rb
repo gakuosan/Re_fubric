@@ -31,3 +31,7 @@ def Buyer.digest(string)
     self.remember_token = Buyer.new_token                                        # 記憶トークンをremember_token属性に代入
     update_attribute(:remember_digest, Buyer.digest(remember_token))             # DBのremember_token属性値をBcryptに渡してハッシュ化して更新
   end
+
+  def authenticate(submitted_password)
+  self.has_password?(submitted_password)
+end

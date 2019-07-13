@@ -1,6 +1,6 @@
 class BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update, :destroy]
-
+　LIKED_REQUEST = 'liked'
   # GET /buyers
   # GET /buyers.json
   def index
@@ -68,7 +68,8 @@ class BuyersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def buyer_params
-      params.require(:buyer).permit(:name, :email)
-    end
+
+def buyer_params
+    params.require(:buyer).permit(:name, :email, :profile_image, :password, :password_confirmation)
+  end
 end

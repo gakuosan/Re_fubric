@@ -2,6 +2,7 @@ class Seller < ApplicationRecord
   attr_accessor :name, :email
   attr_accessor :remember_token
 
+
   # ランダムなトークンを返す
   def Seller.new_token                                                            # Userクラスにnew_tokenを渡したクラスメソッドを作成
     SecureRandom.urlsafe_base64                                                 # SecureRandomモジュールにbase64でランダムな文字列を生成
@@ -31,3 +32,7 @@ def Seller.digest(string)
     self.remember_token = Seller.new_token                                        # 記憶トークンをremember_token属性に代入
     update_attribute(:remember_digest, Seller.digest(remember_token))             # DBのremember_token属性値をBcryptに渡してハッシュ化して更新
   end
+
+  def authenticate(submitted_password)
+  self.has_password?(submitted_password)
+end

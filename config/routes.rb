@@ -1,9 +1,33 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  resources :stocks
-  resources :likes
-  resources :fabrics
-  resources :buyers
-  resources :sellers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :top_pages
+  root to: 'top#index'
+
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  get 'signup', to: 'buyers#new'
+  get 'signup', to: 'sellers#new'
+
+  resources :sellers, only: [ :index, :show, :new, :create, :destroy, :edit , :update]
+  get    '/login',   to: 'sessions#new'
+
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  resources :buyers, only:  [ :index, :show, :new, :create, :destroy, :edit , :update]
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+  resources :stocks, only: [:index, :show, :new, :cretae]
+  resources :fabrics, only: [:show, :new, :create, :edit, :update] do
+    resources :likes, only:[:create, :destroy]
+    collection do
+        get :orders
+    end
+  end
+
+  resources :likes, only:[:index]
+  resources :order, only:[ :new, :create, :destroy ]
+
 end

@@ -6,7 +6,8 @@
 
     <!-- formの送信先を指定 -->
 
-    <%= form_for :session, url: login_path do |f| %>      <!-- 送信先をurlが/login、Sessionsコントローラのcreateアクションに@userを送り、fブロックに代入-->
+    <%= form_for :session, url: login_path do |f| %>
+    <!-- 送信先をurlが/login、Sessionsコントローラのcreateアクションに@userを送り、fブロックに代入-->
 
     <!-- form作成-->
 
@@ -23,27 +24,7 @@
 
     <!-- 登録ページへのボタン -->
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>New Buyer?  <%= link_to "Sign up now!", signup_path %></p>
+    <p>New Seller? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
-スクリーンショット 2018-12-31 0.17.12.png
-
-生成されたHTMLフォームを確認
-
-|     <!-- formの送信先を指定 --> |
-|:--|
-|      |
-|     <form action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="XWdpHBv8+TrgT+2P84B4ig+B7jcWGK8h9hrKnq81ELDlHjIWcm9KB/IyYzpHKFytXJwsR9vB2qITND13iNR9xg==" />      <!-- 送信先をurlが/login、Sessionsコントローラのcreateアクションに@userを送り、fブロックに代入--> |
-|      |
-|     <!-- form作成--> |
-|        |
-|       <label for="session_email">Email</label> |
-|       <input class="form-control" type="email" name="session[email]" id="session_email" /> |
-|        |
-|       <label for="session_password">Password</label> |
-|       <input class="form-control" type="password" name="session[password]" id="session_password" /> |
-|        |
-|     <!-- 送信ボタン--> |
-|        |
-|       <input type="submit" name="commit" value="送信" class="btn btn-primary" data-disable-with="送信" /> |
-| </form>     |

@@ -1,6 +1,5 @@
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
-
   # GET /sellers
   # GET /sellers.json
   def index
@@ -70,6 +69,6 @@ class SellersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seller_params
-      params.require(:seller).permit(:name, :email)
+        params.require(:seller).permit(:name, :email, :profile_image, :password, :password_confirmation)
+      end
     end
-end
