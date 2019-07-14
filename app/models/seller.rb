@@ -1,18 +1,19 @@
 class Seller < ApplicationRecord
-  has_secure_password
-  attr_accessor :name, :email
+  has_secure_password varidations:false
   attr_accessor :remember_token
 
 
   # ランダムなトークンを返す
-  def Seller.new_token                                                            # Userクラスにnew_tokenを渡したクラスメソッドを作成
-    SecureRandom.urlsafe_base64                                                 # SecureRandomモジュールにbase64でランダムな文字列を生成
+  def Seller.new_token
+    # Userクラスにnew_tokenを渡したクラスメソッドを作成
+    SecureRandom.urlsafe_base64
+    # SecureRandomモジュールにbase64でランダムな文字列を生成
   end
 
   # 記憶トークンをユーザーオブジェクトに代入し、DBのデータを更新する。
   def remember
-    self.remember_token =                                                       #
-    update_attribute(:remember_digest, )                                        #
+    self.remember_token =
+    update_attribute(:remember_digest, )
   end
 end
 
@@ -24,14 +25,18 @@ def Seller.digest(string)
   end
 
   # ランダムなトークンを返す
-  def Seller.new_token                                                            # Userクラスにnew_tokenを渡したクラスメソッドを作成
-    SecureRandom.urlsafe_base64                                                 # SecureRandomモジュールにbase64でランダムな文字列を生成
+  def Seller.new_token
+   # Userクラスにnew_tokenを渡したクラスメソッドを作成
+    SecureRandom.urlsafe_base64
+   # SecureRandomモジュールにbase64でランダムな文字列を生成
   end
 
   # 記憶トークンをUserオブジェクトのremember_token属性に代入し、DBに記憶ダイジェストとして保存
   def remember
-    self.remember_token = Seller.new_token                                        # 記憶トークンをremember_token属性に代入
-    update_attribute(:remember_digest, Seller.digest(remember_token))             # DBのremember_token属性値をBcryptに渡してハッシュ化して更新
+    self.remember_token = Seller.new_token
+    # 記憶トークンをremember_token属性に代入
+    update_attribute(:remember_digest, Seller.digest(remember_token))
+    # DBのremember_token属性値をBcryptに渡してハッシュ化して更新
   end
 
   def authenticate(submitted_password)

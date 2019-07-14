@@ -1,9 +1,8 @@
 class Buyer < ApplicationRecord
-  attr_accessor :name, :email
+  has_secure_password varidations:false
   attr_accessor :remember_token
   has_many :likes, dependent: :destroy
   before_save { self.email = email.downcase }
-  has_secure_password
 end
 
   # ランダムなトークンを返す

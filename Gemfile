@@ -65,3 +65,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '3.3.7'
 
 gem 'simple_form'
+#検索画面用のRansackを実装する
+gem 'ransack'
