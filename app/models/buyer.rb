@@ -2,7 +2,9 @@ class Buyer < ApplicationRecord
   attr_accessor :name, :email
   attr_accessor :remember_token
   has_many :likes, dependent: :destroy
-
+  before_save { self.email = email.downcase }
+  has_secure_password
+end
 
   # ランダムなトークンを返す
   def Buyer.new_token
@@ -16,7 +18,7 @@ class Buyer < ApplicationRecord
     self.remember_token =                                                       #
     update_attribute(:remember_digest, )                                        #
   end
-end
+
 
 
 def Buyer.digest(string)
@@ -83,5 +85,5 @@ def Buyer.digest(string)
   def create_activation_digest
     self.activation_token  = Buyer.new_token
     self.activation_digest = Buyer.digest(self.activation_token)
-    # @user.activation_digest => ハッシュ値
+    @buyer.activation_digest
   end
