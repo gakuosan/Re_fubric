@@ -12,14 +12,14 @@ Rails.application.routes.draw do
 
   resources :sellers, only: [ :index, :show, :new, :create, :destroy, :edit , :update]
   get    '/login',   to: 'sessions#new'
-
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :buyers, only:  [ :index, :show, :new, :create, :destroy, :edit , :update]
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :stocks, only: [:index, :show, :new, :cretae]
+  resources :stocks, only: [:index, :show, :new, :cretae, :update]
+  post   '/stocks',   to: 'stocks#create'
   resources :fabrics, only: [:show, :new, :create, :edit, :update] do
     resources :likes, only:[:create, :destroy]
     collection do
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only:[:index]
-  resources :order, only:[ :new, :create, :destroy ]
+  resources :orders, only:[ :new, :create, :destroy ]
 
 end

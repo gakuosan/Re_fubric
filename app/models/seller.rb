@@ -1,4 +1,5 @@
 class Seller < ApplicationRecord
+  has_secure_password
   attr_accessor :name, :email
   attr_accessor :remember_token
 
