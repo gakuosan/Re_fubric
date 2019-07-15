@@ -69,7 +69,11 @@ class BuyersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
 
-def buyer_params
-    params.require(:buyer).permit(:name, :email, :profile_image, :password, :password_confirmation)
-  end
-end
+    def buyer_params
+      params.require(:buyer).permit(:name, :email, :profile_image, :password, :password_confirmation)
+    end
+    end
+
+    def create_activation_digest
+      # 有効化トークンとダイジェストを作成および代入する
+    end

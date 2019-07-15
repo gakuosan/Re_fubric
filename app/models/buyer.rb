@@ -72,7 +72,7 @@ def Buyer.digest(string)
   end
 
   def image
-    profile_image.attached? ? profile_image : '/images/fallback/photo.png'
+    profile_image.attached? ? profile_image : ''
   end
 
   private

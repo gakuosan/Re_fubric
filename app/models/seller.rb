@@ -1,6 +1,9 @@
 class Seller < ApplicationRecord
   has_secure_password varidations:false
   attr_accessor :remember_token
+  has_many :fabrics, dependent: :destroy
+  before_save { self.email = email.downcase }
+end
 
 
   # ランダムなトークンを返す
@@ -41,4 +44,20 @@ def Seller.digest(string)
 
   def authenticate(submitted_password)
   self.has_password?(submitted_password)
+end
+
+def image
+  profile_image.attached? ? profile_image : ''
+end
+
+private
+
+def downcase_email
+  self.email = self.email.downcase
+end
+
+def create_activation_digest
+  self.activation_token  = Seller.new_token
+  self.activation_digest = Seller.digest(self.activation_token)
+  @seller.activation_digest
 end

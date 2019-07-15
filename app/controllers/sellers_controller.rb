@@ -72,3 +72,7 @@ class SellersController < ApplicationController
         params.require(:seller).permit(:name, :email, :profile_image, :password, :password_confirmation)
       end
     end
+
+    def create_activation_digest
+      # 有効化トークンとダイジェストを作成および代入する
+    end

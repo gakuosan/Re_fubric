@@ -4,10 +4,6 @@ class FabricsController < ApplicationController
   # GET /fabrics
   # GET /fabrics.json
   def index
-    @fabrics = Fabric.all
-  end
-
-  def index
     @q = Fabric.includes(:buyer).all.ransack(params[:q])
     @fabrics = @q.result(distinct: true).recent.page(params[:page]).per(10)
   end
