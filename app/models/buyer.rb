@@ -12,26 +12,12 @@ end
     # SecureRandomモジュールにbase64でランダムな文字列を生成
   end
 
-  # 記憶トークンをユーザーオブジェクトに代入し、DBのデータを更新する。
-  def remember
-    self.remember_token =                                                       #
-    update_attribute(:remember_digest, )                                        #
-  end
-
-
-
 def Buyer.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
-  # ランダムなトークンを返す
-  def Buyer.new_token
-    # Userクラスにnew_tokenを渡したクラスメソッドを作成
-    SecureRandom.urlsafe_base64
-    # SecureRandomモジュールにbase64でランダムな文字列を生成
-  end
 
   # 記憶トークンをUserオブジェクトのremember_token属性に代入し、DBに記憶ダイジェストとして保存
   def remember
@@ -49,7 +35,7 @@ def Buyer.digest(string)
   end
 
   def activate
-    update_attribute(:activated,    true)
+    update_attribute(:activated, true)
     update_attribute(:activated_at, Time.zone.now)
   end
 
@@ -58,7 +44,7 @@ def Buyer.digest(string)
   end
 
   def create_reset_digest
-    self.reset_token = User.new_token
+    self.reset_token = Buyer.new_token
     update_attribute(:reset_digest,  Buyer.digest(reset_token))
     update_attribute(:reset_sent_at, Time.zone.now)
   end

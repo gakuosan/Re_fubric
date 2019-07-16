@@ -62,8 +62,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #画像アップロード
-gem 'bootstrap-sass', '3.3.7'
 
 gem 'simple_form'
 #検索画面用のRansackを実装する
 gem 'ransack'
+
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
