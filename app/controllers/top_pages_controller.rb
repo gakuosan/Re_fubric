@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class TopPagesController < ApplicationController
 
   def index
     @q = Fabrics.includes(buyer).order(created_at: :desc, id: :desc).search(params[:q])

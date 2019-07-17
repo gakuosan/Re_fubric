@@ -36,3 +36,10 @@ dl.searchbox dd{
 .search-btn:hover {
   background:#228B22;
 }
+
+/*
+ *= require_self
+ *= require scaffolds.css
+ *= require hoges.css
+ *= require_tree .
+ */

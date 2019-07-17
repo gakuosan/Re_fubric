@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   def create
     buyer = Buyer.find_by(email: params[:session][:email])
     if buyer && buyer.authenticate(params[:session][:password])
-      if seller.activated?
+      if buyer.activated?
         log_in buyer
         params[:session][:remember_me] == '1' ? remember(buyer) : forget(buyer)
         redirect_back_or root_path

@@ -67,5 +67,5 @@ gem 'simple_form'
 #検索画面用のRansackを実装する
 gem 'ransack'
 
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'bootstrap-sass'
