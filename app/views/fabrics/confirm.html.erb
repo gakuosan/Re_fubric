@@ -1,0 +1,12 @@
+<h1>生地投稿確認画面</h1>
+<%= form_with(model: @fabric, url: fabrics_path, local: true) do |form| %>
+  <!-- 確認画面でアップロードした画像を表示させるための記述 -->
+  <%= image_tag(@fabric.image.url) if @fabric.image && @fabric.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "投稿する" %>
+<% end %>
+
+<%= form_with(model:@fabric, url:new_fabric_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>

@@ -41,6 +41,8 @@ def image
   profile_image.attached? ? profile_image : ''
 end
 
+
+
 private
 
 def downcase_email

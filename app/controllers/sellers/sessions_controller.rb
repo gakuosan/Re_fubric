@@ -1,6 +1,5 @@
 class Seller::SessionsController < ApplicationController
 
-
   def new
   end
 

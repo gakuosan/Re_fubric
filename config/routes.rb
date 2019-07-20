@@ -1,32 +1,26 @@
-Rails.application.routes.draw do
-  resources :top_pages
-  root to: 'top#index'
+ Rails.application.routes.draw do
+    root to: 'top_page#index'
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
-  get 'signup', to: 'buyers#new'
-  get 'signup', to: 'sellers#new'
+    get  '/signup',  to: 'sellers#new'
+    get  '/signup',  to: 'buyers#new'
+    post '/signup',  to: 'sellers#create'
+    post '/signup',  to: 'buyers#create'
 
-  scope '/admin' do
-  resources :buyers, only: [:index, :show, :new, :cretae, :update]
-  end
+    get    'sellers/login',   to: 'sessions#new'
+    get    'buyers/login',   to: 'sessions#new'
+    post   'sellers/login',   to: 'sessions#create'
+    post   'buyers/login',   to: 'sessions#create'
+    delete 'sellers/logout',  to: 'sessions#destroy'
+    delete 'buyers/logout',  to: 'sessions#destroy'
 
-  scope '/admin' do
-  resources :sellers, only: [:index, :show, :new, :cretae, :update]
-  end
+    resources :account_activations, only: [:edit]
+    resources :password_resets,     only: [:new,:create,:edit, :update]
 
-  resources :stocks, only: [:index, :show, :new, :cretae, :update]
-    post   '/stocks',   to: 'stocks#create'
+    resources :fabrics, only:[:show,:new,:create,:edit,:update]
+    resources :stocks, only: [:create, :destroy]
+    resources :likes, only:[:create, :destroy]
 
-  resources :fabrics, only: [:show, :new, :create, :edit, :update] do
-
-  resources :likes, only:[:create, :destroy]
-    collection do
-        get :orders
-    end
-  end
-
-  resources :orders, only:[ :new, :create, :destroy ]
+    resources :buyers, only: [:index, :show, :new, :create, :update]
+    resources :buyers, only: [:index, :show, :new, :create, :update]
 
 end

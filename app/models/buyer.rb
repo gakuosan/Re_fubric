@@ -96,4 +96,15 @@ end
  def send_password_reset_email
    SellerMailer.password_reset(self).deliver_now
  end
- 
+
+ private
+
+ def downcase_email
+   self.email = self.email.downcase
+ end
+
+ def create_activation_digest
+   self.activation_token  = Buyer.new_token
+   self.activation_digest = Buyer.digest(self.activation_token)
+   @buyer.activation_digest
+ end

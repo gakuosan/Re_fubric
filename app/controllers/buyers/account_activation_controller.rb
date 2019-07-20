@@ -1,8 +1,7 @@
 class Buyer::AccountController < ApplicationController
   skip_before_action :logged_in_buyer
 
-
-  def edit
+　def edit
     buyer = Buyer.find_by(email: params[:email])
     if buyer && !buyer.activated? && buyer.authenticated?(:activation, params[:id])
       buyer.activate

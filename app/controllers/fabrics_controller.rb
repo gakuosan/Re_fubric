@@ -71,6 +71,6 @@ class FabricsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fabric_params
-      params.require(:fabric).permit(:fabric_color, :fabric_weight, :fabric_yarn_count, :fabric_knitting_way, :fabric_price, :fabric_composition, :fabric_id, :fabric_count)
+      params.require(:fabric).permit(:fabric_color, :fabric_weight, :fabric_yarn_count, :fabric_knitting_way, :fabric_price, :fabric_composition, :fabric_id, :fabric_count, :image,  :image_cache)
     end
 end

@@ -51,6 +51,15 @@
     <%= form.number_field :fabric_count %>
   </div>
 
+  <div class="field">
+  <%= form.label :image %>
+  <!-- 確認画面から新規作成画面に戻った時に、 -->
+  <!-- アップロードした画像を表示させるための記述 -->
+  <%= image_tag(@fabric.image.url) if @fabric.image && @fabric.image.url %>
+  <%= form.file_field :image %>
+  <%= form.hidden_field :image_cache %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
