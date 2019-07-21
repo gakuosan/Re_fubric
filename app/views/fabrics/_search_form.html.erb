@@ -1,0 +1,43 @@
+<h1>生地検索結果</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fabric color</th>
+      <th>Fabric weight</th>
+      <th>Fabric yarn count</th>
+      <th>Fabric knitting way</th>
+      <th>Fabric price</th>
+      <th>Fabric composition</th>
+      <th>Fabric</th>
+      <th>Fabric count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  | 検索結果 |
+
+
+= link_to 'トップ', root_path
+
+
+<tbody>
+  <% @fabrics.each do |fabric| %>
+    <tr>
+      <td><%= fabric.fabric_color %></td>
+      <td><%= fabric.fabric_weight %></td>
+      <td><%= fabric.fabric_yarn_count %></td>
+      <td><%= fabric.fabric_knitting_way %></td>
+      <td><%= fabric.fabric_price %></td>
+      <td><%= fabric.fabric_composition %></td>
+      <td><%= fabric.fabric_id %></td>
+      <td><%= fabric.fabric_count %></td>
+      <td><%= link_to 'Show', fabric %></td>
+      <td><%= link_to 'Edit', edit_fabric_path(fabric) %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>

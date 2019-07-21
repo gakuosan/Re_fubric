@@ -1,0 +1,27 @@
+h1
+  | 生地一覧
+= render 'search_form'
+table
+  - @fabrics.each do |fabric|
+    tr
+      td
+        = Fabric color
+      td
+        = Fabric weight
+      td
+        = Fabric yarn count
+      td
+        = Fabric knitting way
+      td
+        = Fabric price
+
+      td
+        =Fabric composition
+
+      td
+        =Fabric count
+
+ = paginate @fabrics
+
+ #fabrics
+  = render partial: 'fabrics', locals: {fabrics: @fabrics}

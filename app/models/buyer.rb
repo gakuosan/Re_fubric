@@ -80,22 +80,12 @@ def Buyer.digest(string)
    update_attribute(:reset_sent_at, Time.zone.now)
  end
 
- # パスワード再設定の属性を設定する
-def create_reset_digest
-  self.reset_token = Seller.new_token
-  update_attribute(:reset_digest, Seller.digest(reset_token))
-  update_attribute(:reset_sent_at, Time.zone.now)
-end
-
 
  # パスワード再設定のメールを送信する
  def send_password_reset_email
    BuyerMailer.password_reset(self).deliver_now
  end
 
- def send_password_reset_email
-   SellerMailer.password_reset(self).deliver_now
- end
 
  private
 

@@ -7,6 +7,11 @@ class BuyersController < ApplicationController
     @buyers = Buyer.all
   end
 
+  def search
+    @q = Fabric.search(search_params)
+    @fabrics = @q.result(distinct: true)
+  end
+  
   # GET /buyers/1
   # GET /buyers/1.json
   def show
@@ -76,4 +81,8 @@ class BuyersController < ApplicationController
 
     def create_activation_digest
       # 有効化トークンとダイジェストを作成および代入する
+    end
+
+    def search_params
+     params.require(:q).permit!
     end

@@ -10,5 +10,19 @@
   <%= @buyer.email %>
 </p>
 
+<div class="col-6 buyer__activity-stat">
+      <span class="buyer__activity-stat_count">
+        <%= Like.where(fabric: @buyer.fabrics).count %>
+      </span>
+      <br>
+      Contributtion
+    </div>
+  </div>
+  <ul class="nav nav-tabs mt-3 col-12">
+    <li class="nav-item">
+      <%= link_to 'いいねした生地', show_buyer_path(@buyer, liked: :liked), class: "nav-link #{liked_articles_request? ? 'active' : ''}" %>
+    </li>
+  </ul>
+
 <%= link_to 'Edit', edit_buyer_path(@buyer) %> |
 <%= link_to 'Back', buyers_path %>

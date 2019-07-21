@@ -2,6 +2,8 @@ class Seller < ApplicationRecord
   has_secure_password varidations:false
   attr_accessor :remember_token
   has_many :fabrics, dependent: :destroy
+  has_many :stocks, dependent: :destroy
+
   before_save { self.email = email.downcase }
 end
 

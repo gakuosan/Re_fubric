@@ -1,4 +1,5 @@
 class Seller::SessionsController < ApplicationController
+  skip_before_action :logged_in_seller, only: %i[new create]
 
   def new
   end
@@ -13,7 +14,7 @@ class Seller::SessionsController < ApplicationController
       else
         message = 'アカウントがアクティブになっていません。'
         message += '招待メールを確認してください'
-        redirect_to login_path, alert: message
+        redirect_to log_in_path, alert: message
       end
     else
       flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません'
@@ -23,6 +24,6 @@ class Seller::SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to login_path
+    redirect_to log_in_path
   end
 end

@@ -1,4 +1,6 @@
 class Buyer::SessionsController < ApplicationController
+  skip_before_action :logged_in_buyer, only: %i[new create]
+
   def new
   end
 
@@ -22,6 +24,6 @@ class Buyer::SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to login_path
+    redirect_to log_in_path
   end
 end

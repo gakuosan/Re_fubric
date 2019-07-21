@@ -1,0 +1,7 @@
+  = search_form_for(@q, url:search_path) do |f|
+    p
+      = f.label :department_id_eq, '生地'
+      = f.radio_button 'department_id_eq', '', {:checked => true}
+      | 指定なし
+      = f.collection_radio_buttons :department_id_eq, @departments, :id, :name
+      = f.submit

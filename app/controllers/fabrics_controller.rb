@@ -1,12 +1,21 @@
 class FabricsController < ApplicationController
+  PER = 10
   before_action :set_fabric, only: [:show, :edit, :update, :destroy]
 
   # GET /fabrics
   # GET /fabrics.json
-  def index
-    @q = Fabric.includes(:buyer).all.ransack(params[:q])
-    @fabrics = @q.result(distinct: true).recent.page(params[:page]).per(10)
-  end
+def index
+   @q = Fabric.ransack(params[:q])
+   #@fabrics = Fabrics.all
+   #JSonとAPIの使用
+   @fabrics = Fabric.page(params[:page]).per(PER)
+   respond_to do |format|
+     format.html
+     format.js
+   #Ransackのコード
+   @fabrics = @q.result.includes(:department, :subjects)
+   end
+end
 
   # GET /fabrics/1
   # GET /fabrics/1.json
@@ -28,16 +37,7 @@ class FabricsController < ApplicationController
   def create
     @fabric = Fabric.new(fabric_params)
 
-    respond_to do |format|
-      if @fabric.save
-        format.html { redirect_to @fabric, notice: 'Fabric was successfully created.' }
-        format.json { render :show, status: :created, location: @fabric }
-      else
-        format.html { render :new }
-        format.json { render json: @fabric.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    ##########  end
 
   # PATCH/PUT /fabrics/1
   # PATCH/PUT /fabrics/1.json
@@ -73,4 +73,9 @@ class FabricsController < ApplicationController
     def fabric_params
       params.require(:fabric).permit(:fabric_color, :fabric_weight, :fabric_yarn_count, :fabric_knitting_way, :fabric_price, :fabric_composition, :fabric_id, :fabric_count, :image,  :image_cache)
     end
+
+   def search_params
+     params.require(:q).permit(:color_cont)
+end
+end
 end

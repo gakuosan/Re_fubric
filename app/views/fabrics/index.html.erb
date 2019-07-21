@@ -36,14 +36,16 @@
         <td><%= link_to 'Edit', edit_fabric_path(fabric) %></td>
         <td><%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <%= paginate @fabrics %>
     <% end %>
+
   </tbody>
 </table>
 
 <br>
 
 <%= search_form_for @search do |f| %>
-  # fabricカラムに対して部分一致検索ができる
+  #fabricカラムに対して部分一致検索ができる
   <%= f.label :fabric_cont, "商品名を含む" %>
   <%= f.search_field :fabric_cont %>
 

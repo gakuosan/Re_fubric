@@ -6,10 +6,10 @@
     post '/signup',  to: 'sellers#create'
     post '/signup',  to: 'buyers#create'
 
-    get    'sellers/login',   to: 'sessions#new'
-    get    'buyers/login',   to: 'sessions#new'
-    post   'sellers/login',   to: 'sessions#create'
-    post   'buyers/login',   to: 'sessions#create'
+    get    'sellers/log_in',   to: 'sessions#new'
+    get    'buyers/log_in',   to: 'sessions#new'
+    post   'sellers/log_in',   to: 'sessions#create'
+    post   'buyers/log_in',   to: 'sessions#create'
     delete 'sellers/logout',  to: 'sessions#destroy'
     delete 'buyers/logout',  to: 'sessions#destroy'
 

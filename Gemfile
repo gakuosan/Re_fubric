@@ -79,3 +79,10 @@ group :production do
   gem 'pg', '0.20.0'
   gem 'fog','1.42'
 end
+
+gem 'slim-rails'
+
+gem 'kaminari', '~> 0.17.0'
+#ペネトレーション機能の追加
+
+gem 'kaminari-bootstrap', '~> 3.0.1'

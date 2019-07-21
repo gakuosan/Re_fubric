@@ -1,11 +1,18 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy, :create]
+  before_action :set_fabric, only: %i[create destroy]
 
   # GET /stocks
   # GET /stocks.json
   def index
     @stocks = Stock.all
   end
+
+  def index
+  @fabric = Fabric.where(id: current_seller.stocks.select(:fabric_id))
+                     #.includes(seller: :profile_image_attachment)
+                     .order(created_at: :desc)
+                     .page(params[:page])
 
   # GET /stocks/1
   # GET /stocks/1.json
@@ -63,9 +70,14 @@ class StocksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_stock
-      @stock = Stock.find(params[:fabric_id])
+      @stock = current_seller.stocks.find(params[:id])
     end
+
+    def set_fabric
+    @fabric = Fabric.find(params[:fabric_id])
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params

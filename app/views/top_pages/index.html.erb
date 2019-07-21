@@ -1,2 +1,9 @@
-h2 マイページ
-=render partial: 'fabrics/index', locals: { fabrics: @fabrics, q: @q }
+<div class="row">
+  <div class="col-md-8">
+    <h2 class="page__title">
+      <%= icon('fas', 'folder-open') %>
+      生地一覧ページ
+    </h2>
+    <%= render 'shared/fabrics/index',　fabrics: @fabrics %>
+  </div>
+</div>
