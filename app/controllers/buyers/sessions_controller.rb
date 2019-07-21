@@ -1,5 +1,5 @@
-class Buyer::SessionsController < ApplicationController
-  skip_before_action :logged_in_buyer, only: %i[new create]
+class Buyers::SessionController< ApplicationController
+  #skip_before_action :logged_in_buyer, only: %i[new create]
 
   def new
   end

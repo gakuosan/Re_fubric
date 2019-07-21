@@ -6,12 +6,12 @@
     post '/signup',  to: 'sellers#create'
     post '/signup',  to: 'buyers#create'
 
-    get    'sellers/log_in',   to: 'sessions#new'
-    get    'buyers/log_in',   to: 'sessions#new'
-    post   'sellers/log_in',   to: 'sessions#create'
-    post   'buyers/log_in',   to: 'sessions#create'
-    delete 'sellers/logout',  to: 'sessions#destroy'
-    delete 'buyers/logout',  to: 'sessions#destroy'
+    get    'sellers/log_in',   to: 'sellers/sessions#new'
+    get    'buyers/log_in',   to: 'buyers/sessions#new'
+    post   'sellers/log_in',   to: 'sellers/sessions#create'
+    post   'buyers/log_in',   to: 'buyers/sessions#create'
+    delete 'sellers/logout',  to: 'sellers/sessions#destroy'
+    delete 'buyers/logout',  to: 'buyers/sessions#destroy'
 
     resources :account_activations, only: [:edit]
     resources :password_resets,     only: [:new,:create,:edit, :update]
