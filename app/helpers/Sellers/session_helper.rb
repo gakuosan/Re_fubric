@@ -1,10 +1,11 @@
-module SessionsHelper
+module Sellers::SessionsHelper
   def log_in(seller)
     session[:seller_id] = seller.id
   end
 
   def remember(seller)
-    seller.remember # => DB: remember_digest
+    seller.remember
+    # => DB: remember_digest
     cookies.permanent.signed[:seller_id] = seller.id
     cookies.permanent[:remember_token] = seller.remember_token
   end
@@ -46,3 +47,4 @@ module SessionsHelper
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
   end
+end

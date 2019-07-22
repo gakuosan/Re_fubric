@@ -11,7 +11,7 @@ class BuyersController < ApplicationController
     @q = Fabric.search(search_params)
     @fabrics = @q.result(distinct: true)
   end
-  
+
   # GET /buyers/1
   # GET /buyers/1.json
   def show
