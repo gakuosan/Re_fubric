@@ -1,5 +1,5 @@
 class Sellers::SessionsController< ApplicationController
-  skip_before_action :logged_in_seller, only: %i[new create]
+  #skip_before_action :logged_in_seller, only: %i[new create]
 
   def new
   end

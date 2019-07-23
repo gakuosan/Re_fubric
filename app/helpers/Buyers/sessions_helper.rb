@@ -1,10 +1,10 @@
-module Buyers::SessionHelper
+module Buyers::SessionsHelper
   def log_in(buyer)
-    session[:seller_id] = seller.id
+    session[:buyer_id] = buyer.id
   end
 
   def remember(buyer)
-    seller.remember # => DB: remember_digest
+    buyer.remember # => DB: remember_digest
     cookies.permanent.signed[:buyer_id] = buyer.id
     cookies.permanent[:remember_token] = buyer.remember_token
   end

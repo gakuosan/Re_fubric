@@ -1,4 +1,4 @@
-class Seller::AccountController < ApplicationController
+class Sellers::AccountController < ApplicationController
   skip_before_action :logged_in_seller
 
 

@@ -1,4 +1,4 @@
-class Buyer::PasswordResetsController < ApplicationController
+class Buyers::PasswordResetsController < ApplicationController
   skip_before_action :logged_in_buyer
   before_action :set_buyer,   only: %i[edit update]
   before_action :valid_buyer, only: %i[edit update]

@@ -4,7 +4,7 @@ class Buyers::SessionsController< ApplicationController
   def new
   end
 
-  #def create
+  def create
     buyer = Buyer.find_by(email: params[:session][:email])
     if buyer && buyer.authenticate(params[:session][:password])
       if buyer.activated?

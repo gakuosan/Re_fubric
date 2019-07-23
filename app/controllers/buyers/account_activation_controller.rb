@@ -1,4 +1,4 @@
-class Buyer::AccountController < ApplicationController
+class Buyers::AccountController < ApplicationController
   skip_before_action :logged_in_buyer
 
 　def edit
