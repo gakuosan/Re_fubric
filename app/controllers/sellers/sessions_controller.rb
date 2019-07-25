@@ -1,6 +1,7 @@
 class Sellers::SessionsController< ApplicationController
   #skip_before_action :logged_in_seller, only: %i[new create]
 
+
   def new
   end
 
@@ -21,6 +22,7 @@ class Sellers::SessionsController< ApplicationController
       render :new
     end
   end
+
 
   def destroy
     log_out if logged_in?

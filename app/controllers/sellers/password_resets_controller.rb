@@ -1,4 +1,4 @@
-class Seller::PasswordResetsController < ApplicationController
+class Sellers::PasswordResetsController < ApplicationController
   skip_before_action :logged_in_seller
   before_action :set_seller,   only: %i[edit update]
   before_action :valid_seller, only: %i[edit update]

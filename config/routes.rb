@@ -2,13 +2,16 @@
     root to: 'top_page#index'
 
 
-
     get  '/signup',  to: 'sellers#new'
     get  '/signup',  to: 'buyers#new'
     post '/signup',  to: 'sellers#create'
     post '/signup',  to: 'buyers#create'
 
+    namespace :buyers do
+    end
 
+    namespace :sellers do
+    end
 
     get    'sellers/log_in',   to: 'sellers/sessions#new'
     get    'buyers/log_in',   to: 'buyers/sessions#new'
@@ -28,7 +31,5 @@
     resources :stocks, only: [:create, :destroy]
     resources :likes, only:[:create, :destroy]
 
-    resources :buyers, only: [:index, :show, :new, :create, :update]
-    resources :sellers, only: [:index, :show, :new, :create, :update]
 
 end

@@ -1,4 +1,4 @@
-class SellersController < ApplicationController
+class Sellers::SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
   # GET /sellers
   # GET /sellers.json
