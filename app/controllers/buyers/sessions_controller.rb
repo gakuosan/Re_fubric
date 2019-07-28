@@ -14,7 +14,7 @@ class Buyers::SessionsController< ApplicationController
       else
         message = 'アカウントがアクティブになっていません。'
         message += '招待メールを確認してください'
-        redirect_to login_path, alert: message
+        redirect_to buyers_log_in_path, alert: message
       end
     else
       flash.now[:alert] = 'メールアドレスまたはパスワードが正しくありません'
@@ -26,3 +26,4 @@ class Buyers::SessionsController< ApplicationController
     log_out if logged_in?
     redirect_to log_in_path
   end
+end

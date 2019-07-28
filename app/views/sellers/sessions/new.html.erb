@@ -3,7 +3,7 @@
     <div class="text-center">
       <h2>#Refabric にログイン</h2>
     </div>
-    <%= simple_form_for(:session, url: login_path, html: { class: 'form-section' }) do |f| %>
+    <%= simple_form_for(:session, url: sellers_log_in_path, html: { class: 'form-section' }) do |f| %>
       <%= f.error_notification %>
       <div class="form-group">
         <%= f.input :email, autocomplete: :email, required: false, label: 'メールアドレス' %>
@@ -18,7 +18,7 @@
       <div class="form-group">
         <%= f.submit 'ログイン', class: 'btn btn-primary btn-block btn-lg' %>
       </div>
-      <%= render 'shared/links' %>
+  
     <% end %>
   </div>
 </div>
