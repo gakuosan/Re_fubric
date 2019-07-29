@@ -1,10 +1,10 @@
  Rails.application.routes.draw do
     root to: 'top_page#index'
 
-    get  'sellers/signup',  to: 'sellers#new'
-    get  'buyers/signup',  to: 'buyers#new'
-    post 'sellers/signup',  to: 'sellers#create'
-    post 'buyers/signup',  to: 'buyers#create'
+    get  'sellers/signup',  to: 'sellers/sellers#new'
+    get  'buyers/signup',  to: 'buyers/buyers#new'
+    post 'sellers/signup',  to: 'sellers/sellers#create'
+    post 'buyers/signup',  to: 'buyers/buyers#create'
 
     get    'sellers/log_in',   to: 'sellers/sessions#new'
     get    'buyers/log_in',   to: 'buyers/sessions#new'

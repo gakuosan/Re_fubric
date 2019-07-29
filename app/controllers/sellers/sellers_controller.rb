@@ -1,3 +1,4 @@
+#class SellersController < ApplicationController
 class SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
   # GET /sellers
