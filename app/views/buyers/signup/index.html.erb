@@ -16,9 +16,10 @@
       <tr>
         <td><%= buyer.name %></td>
         <td><%= buyer.email %></td>
-        <td><%= link_to 'Show', buyer %></td>
-        <td><%= link_to 'Edit', new_buyer_path(buyer) %></td>
-        <td><%= link_to 'Destroy', buyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Show', [:buyers, buyer] %></td>
+        <td><%= link_to 'Edit', edit_buyers_buyer_path(store) %></td>
+        <td><%= link_to 'Destroy', [:buyers, buyer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Buyer', new_buyer_path %>
+<%= link_to 'New Buyer', new_signup_buyer_path %>

@@ -1,4 +1,4 @@
-class BuyersController < ApplicationController
+class Buyers::BuyersController < ApplicationController
   before_action :set_buyer, only: [:show, :edit, :update, :destroy]
 　LIKED_REQUEST = 'liked'
   # GET /buyers
@@ -33,10 +33,10 @@ class BuyersController < ApplicationController
 
     respond_to do |format|
       if @buyer.save
-        format.html { redirect_to @buyer, notice: 'Buyer was successfully created.' }
-
-
-        format.json { render :show, status: :created, location: @buyer }
+     #format.html { redirect_to @buyer, notice: 'Buyer was successfully created.' }
+     format.html { redirect_to [:signup, @buyer], notice: 'Store was successfully created.' }
+     format.json { render :show, status: :created, location: [:signup, @buyer] }
+     #format.json { render :show, status: :created, location: @buyer }
       else
         format.html { render :new }
         format.json { render json: @buyer.errors, status: :unprocessable_entity }
@@ -51,6 +51,7 @@ class BuyersController < ApplicationController
       if @buyer.update(buyer_params)
         format.html { redirect_to @buyer, notice: 'Buyer was successfully updated.' }
         format.json { render :show, status: :ok, location: @buyer }
+
       else
         format.html { render :edit }
         format.json { render json: @buyer.errors, status: :unprocessable_entity }
