@@ -1,4 +1,5 @@
 #class SellersController < ApplicationController
+#class SignUp::SellersController < ApplicationController
 class Sellers::SellersController < ApplicationController
   before_action :set_seller, only: [:show, :edit, :update, :destroy]
   # GET /sellers
@@ -29,7 +30,7 @@ class Sellers::SellersController < ApplicationController
 
     respond_to do |format|
       if @seller.save
-        format.html { redirect_to [:signup, @seller], notice: 'Store was successfully created.' }
+        format.html { redirect_to [:signup, @seller], notice: 'Seller was successfully created.' }
         format.json { render :show, status: :created, location: [:signup, @seller] }
       else
         format.html { render :new }
