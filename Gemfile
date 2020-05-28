@@ -82,7 +82,7 @@ end
 
 gem 'slim-rails'
 
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 #ペネトレーション機能の追加
 
 gem 'kaminari-bootstrap', '~> 3.0.1'
